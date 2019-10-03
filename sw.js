@@ -3,9 +3,7 @@ self.addEventListener('install', function(e) {
    caches.open('site').then(function(cache) {
      return cache.addAll([
        '/',
-       '/index.html',
-       '/images/map.png',
-       '/images/marker.png'
+       '/index.html'
      ]);
    })
  );

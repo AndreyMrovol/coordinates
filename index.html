@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:700&display=swap&subset=latin-ext" rel="stylesheet">
+    <title>Fortnite Coordinates Helper</title>
+    <link rel="manifest" href="./manifest.json">
+    <style>
+
+body{
+  background-color: #212121;
+  display: flex;
+  font-family: 'Inconsolata', monospace;
+}
+    .parent {
+      position: relative;
+      top: 0;
+    }
+
+    .map {
+      width: 800px;
+      height: width;
+      position: relative;
+      top: 0;
+      left: 0;
+      border-radius: 15px 0 0 15px;
+    }
+
+    .butts{
+      width: 350px;
+      height: 800px;
+      padding-right: 5px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 0 25px 25px 0;
+      background-color: #424242;
+    }
+
+    @keyframes color{
+      0%{
+        color: #ffffff;
+      }
+      50%{
+        color: #EF6C00;
+      }
+      100%{
+        color: #ffffff;
+      }
+    }
+
+    #overlay{
+  width:300px;
+  height:300px;
+  display:inline-block;
+  background-image: url('./images/map.png');
+  background-repeat:no-repeat;
+  position: relative;
+  top: 0;
+  margin-bottom: 5px;
+}
+
+.bracket{
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.jsonC{
+  margin-left: 15px;
+  padding-bottom: 15px;
+  color: #e06c75;
+}
+
+.colored{
+  color: #8ac36e;
+}
+
+.jsonC *{
+  padding-bottom: 3px;
+}
+
+.copied{
+  padding: 5px;
+  margin-left: 15px;
+  bottom: 250px;
+  right: 200px;
+  color: white;
+}
+
+.animated{
+  animation-name: color;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.mark{
+  width: 1px;
+  height: 1px;
+  background-color: red;
+  position: absolute;
+}
+
+    </style>
+  </head>
+  <body>
+
+    <div class="parent">
+      <img src="./images/map.png" class="map" id="imgZoom" onmousemove="zoomIn(event)" onmouseout="zoomOut()"/>
+      <div class="mark" id="point"></div>
+  </div>
+
+  <div class="butts" id="butts">
+
+    <div id="overlay" onmousemove="zoomIn(event)">
+      <img src="./images/marker.png" id="marker">
+    </div>
+
+    <div id="jsonC" class="jsonC">
+      <div class="bracket">{</div>
+
+        "number":
+        <span class="colored" id="number"></span><span class="bracket">,</span>
+        <br>
+
+        "coordinates":
+        <span class="colored" id="coordinates"></span>
+
+      <div class="bracket"> } </div>
+    </div>
+
+    <div class="clipboard">
+      <div id='copied' class="copied"></div>
+    </div>
+
+  </div>
+
+    <!-- You can also require other files to run in this process -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="./zoomImage.js"></script>
+    <script src="./keyPressed.js"></script>
+
+    <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker
+               .register('./sw.js')
+               .then(function() { console.log("Service Worker Registered"); });
+    }
+    </script>
+  </body>
+</html>

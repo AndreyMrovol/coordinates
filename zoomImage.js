@@ -59,7 +59,7 @@ function zoomIn(event) {
   point.style.left = x + 'px';
 
   let printN = '""';
-  let printC = '"' + cX + '/' + cY + '"';
+  let printC = '"' + Math.round(cX) + '/' + Math.round(cY) + '"';
 
   wholeJSON = '{' + '\n' + '\t \t "number": ' + printN + ',' + '\n' + '\t \t "coordinates": ' + printC + '\n' + '\t  },';
   document.getElementById('number').innerHTML = printN;
@@ -98,7 +98,7 @@ function movePoint(x,y){
    zoomed.style.backgroundPosition = imageC;
 
    let printN = '""';
-   let printC = '"' + x*ff + '/' + y*ff + '"';
+   let printC = '"' + Math.round(x*ff) + '/' + Math.round(y*ff) + '"';
 
    wholeJSON = '{' + '\n' + '\t \t "number": ' + printN + ',' + '\n' + '\t \t "coordinates": ' + printC + '\n' + '\t  },';
    document.getElementById('number').innerHTML = printN;

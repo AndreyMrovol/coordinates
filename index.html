@@ -2,15 +2,18 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata:700&display=swap&subset=latin-ext" rel="stylesheet">
     <title>Fortnite Coordinates Helper</title>
-    <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" type="image/png" href="https://forthelper.github.io/assets/icon.png"/>
+
+    <link rel="stylesheet" href="https://andreymrovol.github.io/material/material.css">
+    <script defer src="https://andreymrovol.github.io/material/material.js"></script>
+    <link rel="stylesheet" href="https://forthelper.github.io/assets/style.css">
     <style>
 
 body{
-  background-color: #212121;
   display: flex;
-  font-family: 'Inconsolata', monospace;
+  font-size: 15px;
+  font-weight: bold;
 }
     .parent {
       position: relative;
@@ -18,7 +21,7 @@ body{
     }
 
     .map {
-      width: 800px;
+      width: 700px;
       height: width;
       position: relative;
       top: 0;
@@ -27,9 +30,8 @@ body{
     }
 
     .butts{
-      width: 350px;
-      height: 800px;
-      padding-right: 5px;
+      width: 300px;
+      height: 700px;
       display: flex;
       flex-direction: column;
       border-radius: 0 25px 25px 0;
@@ -57,6 +59,7 @@ body{
   position: relative;
   top: 0;
   margin-bottom: 5px;
+  border-radius: 0 25px 0 0;
 }
 
 .bracket{
@@ -100,6 +103,17 @@ body{
   position: absolute;
 }
 
+#footer{
+  position: relative;
+  margin-top: 276px;
+  width: 100%;
+  margin-right: 0;
+}
+
+#footer *{
+  border-radius: 0 0 15px 0 !important;
+}
+
     </style>
   </head>
   <body>
@@ -132,6 +146,8 @@ body{
       <div id='copied' class="copied"></div>
     </div>
 
+    <div id="footer"></div>
+
   </div>
 
     <!-- You can also require other files to run in this process -->
@@ -139,12 +155,6 @@ body{
     <script src="./zoomImage.js"></script>
     <script src="./keyPressed.js"></script>
 
-    <script>
-    if('serviceWorker' in navigator) {
-      navigator.serviceWorker
-               .register('./sw.js')
-               .then(function() { console.log("Service Worker Registered"); });
-    }
-    </script>
+    <script src="https://forthelper.github.io/assets/footer.js"></script>
   </body>
 </html>

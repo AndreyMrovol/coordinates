@@ -7,7 +7,6 @@ function checkKey(e) {
     if (e.keyCode == '38') {
         // up arrow
         movePoint(0, -1);
-        console.log('up');
     }
     else if (e.keyCode == '40') {
         // down arrow

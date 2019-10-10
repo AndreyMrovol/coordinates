@@ -61,8 +61,8 @@ function zoomIn(event) {
   let printN = '""';
   let printC = '"' + Math.round(cX) + '/' + Math.round(cY) + '"';
 
-  wholeJSON = '{' + '\n' + '\t \t "number": ' + printN + ',' + '\n' + '\t \t "coordinates": ' + printC + '\n' + '\t  },';
-  document.getElementById('number').innerHTML = printN;
+  wholeJSON = '\n' + '\t \t "coordinates": ' + printC + '\n';
+//  document.getElementById('number').innerHTML = printN;
   document.getElementById('coordinates').innerHTML = printC;
   document.getElementById("copied").classList.remove('animated');
 
@@ -100,8 +100,7 @@ function movePoint(x,y){
    let printN = '""';
    let printC = '"' + Math.round(x*ff) + '/' + Math.round(y*ff) + '"';
 
-   wholeJSON = '{' + '\n' + '\t \t "number": ' + printN + ',' + '\n' + '\t \t "coordinates": ' + printC + '\n' + '\t  },';
-   document.getElementById('number').innerHTML = printN;
+   wholeJSON = '\n' + '\t \t "coordinates": ' + printC + '\n';
    document.getElementById('coordinates').innerHTML = printC;
 }
 

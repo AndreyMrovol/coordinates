@@ -9,7 +9,8 @@ function zoomIn(event) {
   var posY = event.offsetY ? (event.offsetY) : event.pageY;
 
   var positionInfo = img.getBoundingClientRect();
-  var width = positionInfo.width;
+  // var width = positionInfo.width;
+  var width = 1367;
 
   var overlayWidth = 300;
   var markerDimen = (overlayWidth/2) - (50/2);
@@ -20,7 +21,7 @@ function zoomIn(event) {
   picture.style.top = markerDimen + 'px';
   picture.style.position = 'absolute';
 
-  var start = 2048;
+  var start = 4000;
   ff = start / width;
 
   // Get X and Y position of the elm (from: vishalsays.wordpress.com)
@@ -51,8 +52,8 @@ function zoomIn(event) {
   x = x - xy_pos['xp'];
   y = y - xy_pos['yp'];
 
-  let cX = x * ff;
-  let cY = y * ff;
+  let cX = x * ff * 1.95;
+  let cY = y * ff * 1.95;
 
   var point = document.getElementById('point');
   point.style.top = y + 'px';
@@ -98,7 +99,7 @@ function movePoint(x,y){
    zoomed.style.backgroundPosition = imageC;
 
    let printN = '""';
-   let printC = '"' + Math.round(x*ff) + '/' + Math.round(y*ff) + '"';
+   let printC = '"' + Math.round(x*ff*1.95) + '/' + Math.round(y*ff*1.95) + '"';
 
    wholeJSON = '\n' + '\t \t "coordinates": ' + printC + '\n';
    document.getElementById('coordinates').innerHTML = printC;
@@ -111,6 +112,10 @@ function getCXY(){
   arr.push(y*ff);
 
   return arr;
+}
+
+function scaleCoordinates(current, target){
+
 }
 
 function zoomOut() {
